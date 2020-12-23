@@ -93,40 +93,42 @@ function Main({ user, users }) {
 					<div>
 						<div className='more-user-info'>
 							<div className='still-user-info'>
-								<ul>
-									<li>
-										<a
-											href='
+								<div className='ul_style'>
+									<ul>
+										<li>
+											<a
+												href='
                                         /
                                         '
-										>
-											Address:
-										</a>
-										<ul>
-											<li>
-												<a href='/'>Street: </a>
-												{user?.address?.street}
-											</li>
-										</ul>
-										<ul>
-											<li>
-												<a href='/'>Suite: </a>
-												{user?.address?.suite}
-											</li>
-										</ul>
-										<ul>
-											<li>
-												<a href='/'>City: </a>
-												{user?.address?.city}
-											</li>
-										</ul>
-										<ul>
-											<li>
-												<a href='/'>Zipcode: </a> {users?.address?.zipcode}
-											</li>
-										</ul>
-									</li>
-								</ul>
+											>
+												Address:
+											</a>
+											<ul>
+												<li>
+													<a href='/'>Street: </a>
+													{user?.address?.street}
+												</li>
+											</ul>
+											<ul>
+												<li>
+													<a href='/'>Suite: </a>
+													{user?.address?.suite}
+												</li>
+											</ul>
+											<ul>
+												<li>
+													<a href='/'>City: </a>
+													{user?.address?.city}
+												</li>
+											</ul>
+											<ul>
+												<li>
+													<a href='/'>Zipcode: </a> {user?.address?.zipcode}
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</div>
 							</div>
 							<div className='map'>
 								<div className='the-map'>
