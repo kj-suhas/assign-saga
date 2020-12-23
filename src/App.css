@@ -29,20 +29,15 @@ h1,
 h2 {
 	font-weight: bold;
 	line-height: 1.2;
-	margin: 10px 0;
+	margin: 19px 0;
 }
 
 p {
 	margin: 10px 0;
 }
 
-/* img {
-	width: 100%;
-} */
-
-/* Showcase */
 .showcase {
-	height: 400px;
+	height: 461px;
 	background-color: #2876f9;
 	background-image: linear-gradient(315deg, #2876f9 0%, #6d17cb 74%);
 	color: white;
@@ -58,17 +53,6 @@ p {
 }
 
 .showcase-form .requestaccount {
-	/* position: absolute;
-	display: flex;
-	justify-content: center;
-	align-items: center;
-	background-color: rgb(245, 245, 245);
-	top: 0;
-	right: 0;
-	left: 0;
-	height: 130px;
-	width: 100%;
-	border-radius: 40px 40px 0 0; */
 	width: 100%;
 	height: 130px;
 	background-color: rgb(245, 245, 245);
@@ -89,7 +73,6 @@ p {
 	top: 120px;
 	height: 550px;
 	width: 600px;
-	/* padding: 40px; */
 	z-index: 100;
 	justify-self: center;
 }
@@ -122,6 +105,14 @@ p {
 	cursor: pointer;
 }
 
+#wave {
+	position: absolute;
+	bottom: -40px;
+	height: 342px;
+	right: 0;
+	left: 0;
+}
+
 .user:hover {
 	background: #2876f9;
 }
@@ -137,12 +128,6 @@ h4 {
 	position: relative;
 	top: -5px;
 }
-
-/* .showcase-form .showcase-form .requestaccount {
-	position: relative;
-	background-color: rgb(245, 245, 245);
-	height: 100px;
-} */
 
 /* Profile */
 
@@ -365,9 +350,6 @@ h4 {
 	align-items: center;
 }
 
-/* .user h4 {
-	text-align: center;
-} */
 .users-container {
 	height: 400px;
 	overflow: auto;
@@ -423,4 +405,54 @@ h4 {
 	margin-top: 301px;
 	font-size: 67px;
 	color: rgb(214, 214, 214);
+}
+
+.close {
+	border-radius: 50px;
+	background-color: red;
+	opacity: 1;
+}
+
+button.close {
+	cursor: pointer;
+	background: 0 0;
+	border: 0;
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+}
+
+.modal-content {
+	position: relative;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 1px solid #999;
+	border-radius: 6px;
+	box-shadow: 0 3px 9px rgba(0, 0, 0, 0.5);
+	outline: 0;
+	border-radius: 50px;
+	height: 464px;
+	width: 504px;
+	margin-left: 0;
+}
+
+.btn-danger {
+	border-radius: 50px;
+	background-color: rgb(217, 83, 79);
+	margin-left: 183px;
+	margin-bottom: 18px;
+	margin-top: -11px;
+}
+
+.modal-backdrop {
+	background-color: transparent;
+}
+
+.users-container a {
+	text-decoration: none;
+}
+
+.open-button {
+	background: blue;
+	border-radius: 10px 10px 0 0;
 }

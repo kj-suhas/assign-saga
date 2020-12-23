@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Main2() {
+function Main2({ user }) {
 	return (
 		<div className='col-lg-10 right-panel float-right final-h3'>
 			<div
@@ -15,10 +15,10 @@ function Main2() {
 					<div className='current-profile float-right flex'>
 						<img
 							style={{ width: '30px', height: '30px' }}
-							src='https://images.pexels.com/photos/3772510/pexels-photo-3772510.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
+							src={user.profilepicture}
 							alt=''
 						/>
-						<h4>Lenne Graham</h4>
+						<h4>{user.name}</h4>
 					</div>
 				</div>
 			</div>

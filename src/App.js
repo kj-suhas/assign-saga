@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react'
+
 import {
 	BrowserRouter as Router,
-	Link,
 	Route,
 	Switch,
 	Redirect,
@@ -19,7 +19,7 @@ const ComingSoon = ({ user, users }) => {
 		<div className='profile'>
 			<div className='col-lg-12 profile_container'>
 				<Sidebar user={user} />
-				<Main2 />
+				<Main2 user={user} />
 			</div>
 		</div>
 	)

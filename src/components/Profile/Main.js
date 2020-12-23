@@ -1,12 +1,6 @@
-import React, { useState, useEffect } from 'react'
-import axios from 'axios'
+import React from 'react'
 
 function Main({ user, users }) {
-	const [currentUser, setCurrentUser] = useState(user)
-	const [loading, setLoading] = useState(false)
-
-	const allUsers = users?.map(newUser => newUser.id !== user.id)
-
 	const onclick = () => {
 		console.log('chat')
 		let toggleChat = document.getElementById('myForm')
@@ -28,7 +22,11 @@ function Main({ user, users }) {
 						<h2>Profile</h2>
 					</div>
 
-					<div className='current-profile float-right flex'>
+					<div
+						className='current-profile float-right flex'
+						data-toggle='modal'
+						data-target='#exampleModal'
+					>
 						<img
 							style={{ width: '30px', height: '30px' }}
 							src={user.profilepicture}
