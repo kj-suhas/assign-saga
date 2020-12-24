@@ -9,7 +9,7 @@ function Sidebar({ user }) {
 					<ul style={{ marginTop: '230px' }}>
 						<nav>
 							<ul>
-								<li>
+								<li onClick={e => e.target.addClassLsi}>
 									<Link to={`/profile/${user.id}`}>Profile</Link>
 								</li>
 							</ul>

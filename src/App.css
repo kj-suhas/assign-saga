@@ -13,7 +13,7 @@
 body {
 	font-family: 'Ubuntu', sans-serif;
 	line-height: 1.6;
-	color: #333;
+	color: rgb(66, 66, 66);
 }
 
 ul {
@@ -29,7 +29,7 @@ h1,
 h2 {
 	font-weight: bold;
 	line-height: 1.2;
-	margin: 19px 0;
+	margin: 20px 0;
 }
 
 p {
@@ -114,11 +114,9 @@ p {
 }
 
 .user:hover {
-	background: #2876f9;
+	cursor: pointer;
 }
-.user:hover h4 {
-	color: #fff;
-}
+
 .flex-user img {
 	border-radius: 100%;
 	margin-right: 10px;
@@ -126,7 +124,8 @@ p {
 
 h4 {
 	position: relative;
-	top: -5px;
+	top: -1px;
+	font-weight: bold;
 }
 
 /* Profile */
@@ -142,18 +141,24 @@ h4 {
 
 .profile .navbar .flex {
 	justify-content: space-between;
+	position: relative;
+	top: 15px;
 }
 
 .profile .side-menu {
 	height: 800px;
 	margin-top: 55px;
-	margin-left: 25px;
+	margin-left: 18px;
 }
 .the-map img {
-	width: 600px;
-	height: 300px;
+	width: 641px;
+	height: 410px;
+	border-radius: 31px;
 }
 
+.the-map {
+	margin-left: 61px;
+}
 .current-profile img {
 	border-radius: 100%;
 	margin-right: 20px;
@@ -182,7 +187,7 @@ h4 {
 }
 
 .menus {
-	padding: 20px;
+	padding: 39px 30px 39px 9px;
 	background-color: #2876f9;
 	background-image: linear-gradient(315deg, #2876f9 0%, #6d17cb 74%);
 	color: white;
@@ -190,20 +195,42 @@ h4 {
 }
 
 .menus a {
-	color: white;
+	color: rgb(202, 199, 199);
 	margin-bottom: 2px;
 	padding: 10px;
 }
 
+.menus a:active {
+	color: white;
+	text-decoration: none;
+	outline: none;
+}
+
+.menus a:focus {
+	text-decoration: none;
+	color: white;
+}
+
+.menus ul li:first-child {
+	color: white;
+}
+
+.menu a:hover {
+	text-decoration: none;
+}
+
+a:hover {
+	text-decoration: none;
+}
 .menus .card-new nav ul {
 	margin-bottom: 20px;
 }
 
 .flex-item-1 img {
 	border-radius: 100%;
-	height: 190px;
-	margin-top: 40px;
-	width: 200px;
+	height: 234px;
+	margin-top: 23px;
+	width: 243px;
 }
 
 .navbar {
@@ -216,6 +243,14 @@ h4 {
 
 .navbar .container .flex {
 	margin: 30px;
+}
+
+.container-fluid {
+	padding-right: 39px;
+	padding-left: 49px;
+	margin-right: auto;
+	margin-left: auto;
+	margin-top: 16px;
 }
 
 .navbar hr {
@@ -253,10 +288,6 @@ h4 {
 .flex-item-3 ul li a {
 	font-weight: bold;
 	color: #999;
-}
-
-.more-user-info {
-	margin-top: 100px;
 }
 
 .more-user-info .still-user-info {
@@ -315,16 +346,31 @@ h4 {
 	background-color: white;
 	color: #333;
 	border-radius: 40px;
+	width: 281px;
+	margin-top: -20px;
+	height: 909px;
+}
+
+.menus .card-new {
+	margin-top: -17px;
+	margin-left: -25px;
+	width: 277px;
 }
 
 .btn {
+	left: 156px;
 	display: inline-block;
+	position: relative;
 	padding: 10px 30px;
 	cursor: pointer;
-	background: var(--primary-color);
+	background: #d55151;
 	color: white;
 	border: none;
-	border-radius: 5px;
+	border-radius: 32px;
+	top: 9px;
+	/* right: -79px; */
+	left: 94px;
+	outline: none;
 }
 
 .btn-outline {
@@ -354,6 +400,12 @@ h4 {
 	height: 400px;
 	overflow: auto;
 }
+
+.users-model-container {
+	max-height: 155px;
+	overflow: auto;
+}
+
 .float-left {
 	float: left;
 }
@@ -364,6 +416,11 @@ h4 {
 	clear: both;
 	height: auto;
 	margin-top: 0px;
+}
+.profileModal .profile_container {
+	width: 100%;
+	height: 400px;
+	overflow: hidden;
 }
 .ul_style {
 	line-height: 42px;
@@ -385,7 +442,9 @@ h4 {
 	opacity: 0.8;
 	bottom: 23px;
 	float: right;
-	right: 28px;
+	/* right: -34px; */
+	width: 268px;
+	margin-right: 100px;
 	width: 280px;
 }
 .chat-popup {
@@ -407,6 +466,16 @@ h4 {
 	color: rgb(214, 214, 214);
 }
 
+nav {
+	padding: 20px;
+}
+
+nav ul {
+	font-weight: bold;
+	letter-spacing: 1px;
+	font-size: 18px;
+}
+
 .close {
 	border-radius: 50px;
 	background-color: red;
@@ -422,6 +491,12 @@ button.close {
 	appearance: none;
 }
 
+.modal-dialog {
+	float: right;
+	position: relative;
+	top: 63px;
+	left: 14%;
+}
 .modal-content {
 	position: relative;
 	background-color: #fff;
@@ -432,7 +507,7 @@ button.close {
 	outline: 0;
 	border-radius: 50px;
 	height: 464px;
-	width: 504px;
+	width: 350px;
 	margin-left: 0;
 }
 
@@ -444,10 +519,6 @@ button.close {
 	margin-top: -11px;
 }
 
-.modal-backdrop {
-	background-color: transparent;
-}
-
 .users-container a {
 	text-decoration: none;
 }
@@ -455,4 +526,114 @@ button.close {
 .open-button {
 	background: blue;
 	border-radius: 10px 10px 0 0;
+}
+.side-menu hr:last-child {
+	display: none;
+}
+.signOut {
+	text-align: center;
+}
+.signOut button {
+	position: relative;
+	left: -90px;
+}
+
+.h2 h2 {
+	font-size: 22px;
+}
+
+.h4 h4 {
+	font-size: 16px;
+}
+
+#namecard {
+	font-size: 24px;
+}
+
+.model-card {
+	position: relative;
+	background-color: white;
+	color: #333;
+	border-radius: 40px;
+	box-shadow: 0 3px 50px rgba(0, 0, 0, 0.2);
+	width: 100px;
+}
+
+.hidden {
+	display: none;
+}
+
+.modal {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 70%;
+
+	background-color: white;
+	padding: 6rem;
+	border-radius: 5px;
+	box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+	z-index: 10;
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	backdrop-filter: blur(3px);
+	z-index: 5;
+}
+
+.hidden {
+	display: none;
+}
+
+.modal {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 70%;
+
+	background-color: white;
+	padding: 6rem;
+	border-radius: 5px;
+	box-shadow: 0 3rem 5rem rgba(0, 0, 0, 0.3);
+	z-index: 10;
+}
+
+.overlay {
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background-color: rgba(0, 0, 0, 0.6);
+	backdrop-filter: blur(3px);
+	z-index: 5;
+}
+.modal_class {
+	position: relative !important;
+	float: right;
+	right: 25px;
+	height: 483px;
+	top: 15%;
+	width: 23%;
+	border: 1px solid rgb(204, 204, 204);
+	background: rgb(255, 255, 255);
+	overflow: auto;
+	border-radius: 55px;
+	outline: none;
+	box-shadow: 0 13px 10px rgba(0, 0, 0, 0.2);
+	padding: 20px;
+	/* bottom: 113px; */
+	/* margin-bottom: -94px; */
+	bottom: 38px;
+}
+.pl-0 {
+	padding-left: 0px !important;
 }

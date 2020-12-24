@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Main2({ user }) {
+function Main2({ user, showModel }) {
 	return (
 		<div className='col-lg-10 right-panel float-right final-h3'>
 			<div
@@ -12,7 +12,10 @@ function Main2({ user }) {
 						<h2>Profile</h2>
 					</div>
 
-					<div className='current-profile float-right flex'>
+					<div
+						onClick={() => showModel(true)}
+						className='current-profile float-right flex'
+					>
 						<img
 							style={{ width: '30px', height: '30px' }}
 							src={user.profilepicture}

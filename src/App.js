@@ -14,12 +14,12 @@ import axios from 'axios'
 import './App.css'
 import Sidebar from './components/ProfileItems/Sidebar'
 
-const ComingSoon = ({ user, users }) => {
+const ComingSoon = ({ user, users, showModel }) => {
 	return (
 		<div className='profile'>
 			<div className='col-lg-12 profile_container'>
 				<Sidebar user={user} />
-				<Main2 user={user} />
+				<Main2 user={user} showModel={showModel} />
 			</div>
 		</div>
 	)
@@ -29,6 +29,7 @@ function App() {
 	const [userData, setUserData] = useState([])
 	const [clickedUser, setClickedUser] = useState([])
 	const [loading, setLoading] = useState(false)
+	const [modelIsOpen, setModelIsOpen] = useState(false)
 
 	useEffect(() => {
 		const fetchData = async () => {
@@ -46,6 +47,16 @@ function App() {
 		setClickedUser(user)
 	}
 
+	const loginFromModel = user => {
+		setClickedUser(user)
+	}
+
+	const showModel = value => {
+		setModelIsOpen(value)
+	}
+
+	console.log(userData)
+
 	if (loading) {
 		return <h2>Loading...</h2>
 	}
@@ -61,12 +72,23 @@ function App() {
 					<Route
 						exact
 						path='/profile/:id'
-						component={() => <Layout user={clickedUser} users={userData} />}
+						component={() => (
+							<Layout
+								user={clickedUser}
+								users={userData}
+								login={login}
+								loginFromModel={loginFromModel}
+								modelIsOpen={modelIsOpen}
+								showModel={showModel}
+							/>
+						)}
 					/>
 					<Route
 						exact
 						path='/comingsoon'
-						component={() => <ComingSoon user={clickedUser} />}
+						component={() => (
+							<ComingSoon user={clickedUser} showModel={showModel} />
+						)}
 					/>
 					<Redirect to='/' />
 				</Switch>

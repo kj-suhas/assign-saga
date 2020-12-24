@@ -7,7 +7,7 @@ const Landing = ({ users, login }) => {
 			<div className='container grid'>
 				<div className='showcase-form card'>
 					<div className='requestaccount'>
-						<h2 className=''>Select an account</h2>
+						<h2 style={{ color: '#545454' }}>Select an account</h2>
 					</div>
 					<div>
 						<div className='users-container'>
@@ -22,7 +22,7 @@ const Landing = ({ users, login }) => {
 												alt=''
 											/>
 										</div>
-										<div>
+										<div style={{ color: '#616161' }}>
 											<h4>{user.name}</h4>
 										</div>
 										<hr />

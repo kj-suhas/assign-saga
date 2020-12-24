@@ -1,14 +1,14 @@
 import React from 'react'
 
-function Main({ user, users }) {
+function Main({ user, users, showModel }) {
 	const onclick = () => {
 		console.log('chat')
-		let toggleChat = document.getElementById('myForm')
-		if (toggleChat.style.display === 'none') {
-			toggleChat.style.display = 'block'
-		} else {
-			toggleChat.style.display = 'none'
-		}
+		// let toggleChat = document.getElementById('myForm')
+		// if (toggleChat.style.display === 'none') {
+		// 	toggleChat.style.display = 'block'
+		// } else {
+		// 	toggleChat.style.display = 'none'
+		// }
 	}
 
 	return (
@@ -23,12 +23,12 @@ function Main({ user, users }) {
 					</div>
 
 					<div
+						onClick={() => showModel(true)}
 						className='current-profile float-right flex'
-						data-toggle='modal'
-						data-target='#exampleModal'
+						style={{ cursor: 'pointer' }}
 					>
 						<img
-							style={{ width: '30px', height: '30px' }}
+							style={{ width: '45px', height: '41px' }}
 							src={user.profilepicture}
 							alt=''
 						/>
@@ -39,7 +39,7 @@ function Main({ user, users }) {
 			<div className='col-lg-12'>
 				<div
 					className='col-lg-4 float-left'
-					style={{ borderRight: '1px solid #ddd' }}
+					style={{ width: '435px', borderRight: '1px solid #ddd' }}
 				>
 					<div className='user-profile also-flex'>
 						<div className='flex-item-1' style={{ margin: '0px' }}>
@@ -55,16 +55,91 @@ function Main({ user, users }) {
 							<div className='user-info'>
 								<ul className='ul_style'>
 									<li>
-										<a href='/'>Username: </a> {user.username}
+										<div className='col-lg-12'>
+											<div className='col-lg-4'>
+												<span
+													className='float-right'
+													style={{ color: '#9A9A9A' }}
+												>
+													Username
+													<span style={{ paddingLeft: '10px' }}>:</span>
+												</span>
+											</div>
+											<div
+												className='col-lg-8 pl-0'
+												style={{ color: '545454' }}
+											>
+												<span
+													className='float-left'
+													style={{ color: '#545454' }}
+												>
+													{user.username}
+												</span>
+											</div>
+										</div>
 									</li>
 									<li>
-										<a href='/'>e-mail: </a> {user.email}
+										<div className='col-lg-12'>
+											<div className='col-lg-4'>
+												<span
+													className='float-right'
+													style={{ color: '#9A9A9A' }}
+												>
+													e-mail
+													<span style={{ paddingLeft: '10px' }}>:</span>
+												</span>
+											</div>
+											<div className='col-lg-8 pl-0'>
+												<span
+													className='float-left'
+													style={{ color: '#545454' }}
+												>
+													{user.email}
+												</span>
+											</div>
+										</div>
 									</li>
 									<li>
-										<a href='/'>Phone: </a> {user.phone}
+										<div className='col-lg-12'>
+											<div className='col-lg-4'>
+												<span
+													className='float-right'
+													style={{ color: '#9A9A9A' }}
+												>
+													Phone
+													<span style={{ paddingLeft: '10px' }}>:</span>
+												</span>
+											</div>
+											<div className='col-lg-8 pl-0'>
+												<span
+													className='float-left'
+													style={{ color: '#545454' }}
+												>
+													{user.phone}
+												</span>
+											</div>
+										</div>
 									</li>
 									<li>
-										<a href='/'>Website: </a> {user.website}
+										<div className='col-lg-12'>
+											<div className='col-lg-4'>
+												<span
+													className='float-right'
+													style={{ color: '#9A9A9A' }}
+												>
+													Website
+													<span style={{ paddingLeft: '10px' }}>:</span>
+												</span>
+											</div>
+											<div className='col-lg-8 pl-0'>
+												<span
+													className='float-left'
+													style={{ color: '#545454' }}
+												>
+													{user.website}
+												</span>
+											</div>
+										</div>
 									</li>
 								</ul>
 							</div>
@@ -74,29 +149,75 @@ function Main({ user, users }) {
 							<h2 style={{ textAlign: 'center', color: '#ddd' }}>Company</h2>
 							<ul className='ul_style'>
 								<li>
-									<a href='/'>Name: </a>
-									{user.company?.name}
+									<div className='col-lg-12'>
+										<div className='col-lg-4'>
+											<span
+												className='float-right'
+												style={{ color: '#9A9A9A' }}
+											>
+												Name
+												<span style={{ paddingLeft: '10px' }}>:</span>
+											</span>
+										</div>
+										<div className='col-lg-8 pl-0'>
+											<span className='float-left' style={{ color: '#545454' }}>
+												{user.company?.name}
+											</span>
+										</div>
+									</div>
+									{/* {user.company?.name} */}
 								</li>
 								<li>
-									<a href='/'>catchphrase: </a>
-									{user.company?.catchPhrase}
+									<div className='col-lg-12'>
+										<div className='col-lg-4'>
+											<span
+												className='float-right'
+												style={{ color: '#9A9A9A' }}
+											>
+												CatchPhrase
+												<span style={{ paddingLeft: '10px' }}>:</span>
+											</span>
+										</div>
+										<div className='col-lg-8 pl-0'>
+											<span className='float-left' style={{ color: '#545454' }}>
+												{user.company?.catchPhrase}
+											</span>
+										</div>
+									</div>
+									{/*  */}
 								</li>
 								<li>
-									<a href='/'>bs: </a>
-									{user.company?.bs}
+									<div className='col-lg-12'>
+										<div className='col-lg-4'>
+											<span
+												className='float-right'
+												style={{ color: '#9A9A9A' }}
+											>
+												bs
+												<span style={{ paddingLeft: '10px' }}>:</span>
+											</span>
+										</div>
+										<div className='col-lg-8 pl-0'>
+											<span className='float-left' style={{ color: '#545454' }}>
+												{user.company?.bs}
+											</span>
+										</div>
+									</div>
 								</li>
 							</ul>
 						</div>
 					</div>
 				</div>
-				<div className='col-lg-6 float-left'>
+				<div className='col-lg-6 float-left' style={{ width: '50%' }}>
 					<div>
 						<div className='more-user-info'>
 							<div className='still-user-info'>
 								<div className='ul_style'>
-									<ul>
+									<ul style={{ marginLeft: '82px' }}>
 										<li>
 											<a
+												style={{ marginLeft: '-42px' }}
+												className='stayrightthere'
 												href='
                                         /
                                         '
@@ -105,25 +226,95 @@ function Main({ user, users }) {
 											</a>
 											<ul>
 												<li>
-													<a href='/'>Street: </a>
-													{user?.address?.street}
+													<div className='col-lg-12'>
+														<div className='col-lg-4'>
+															<span
+																className='float-right'
+																style={{ color: '#9A9A9A' }}
+															>
+																Street
+																<span style={{ paddingLeft: '10px' }}>:</span>
+															</span>
+														</div>
+														<div className='col-lg-8 pl-0'>
+															<span
+																className='float-left'
+																style={{ color: '#545454' }}
+															>
+																{user?.address?.street}
+															</span>
+														</div>
+													</div>
 												</li>
 											</ul>
 											<ul>
 												<li>
-													<a href='/'>Suite: </a>
-													{user?.address?.suite}
+													<div className='col-lg-12'>
+														<div className='col-lg-4'>
+															<span
+																className='float-right'
+																style={{ color: '#9A9A9A' }}
+															>
+																Suit
+																<span style={{ paddingLeft: '10px' }}>:</span>
+															</span>
+														</div>
+														<div className='col-lg-8 pl-0'>
+															<span
+																className='float-left'
+																style={{ color: '#545454' }}
+															>
+																{user?.address?.suite}
+															</span>
+														</div>
+													</div>
 												</li>
 											</ul>
 											<ul>
 												<li>
-													<a href='/'>City: </a>
-													{user?.address?.city}
+													<div className='col-lg-12'>
+														<div className='col-lg-4'>
+															<span
+																className='float-right'
+																style={{ color: '#9A9A9A' }}
+															>
+																City
+																<span style={{ paddingLeft: '10px' }}>:</span>
+															</span>
+														</div>
+														<div className='col-lg-8 pl-0'>
+															<span
+																className='float-left'
+																style={{ color: '#545454' }}
+															>
+																{user?.address?.city}
+															</span>
+														</div>
+													</div>
 												</li>
 											</ul>
 											<ul>
 												<li>
-													<a href='/'>Zipcode: </a> {user?.address?.zipcode}
+													{/* <a href='/'>Zipcode: </a> {user?.address?.zipcode} */}
+													<div className='col-lg-12'>
+														<div className='col-lg-4'>
+															<span
+																className='float-right'
+																style={{ color: '#9A9A9A' }}
+															>
+																Zipcode
+																<span style={{ paddingLeft: '10px' }}>:</span>
+															</span>
+														</div>
+														<div className='col-lg-8 pl-0'>
+															<span
+																className='float-left'
+																style={{ color: '#545454' }}
+															>
+																{user?.address?.zipcode}
+															</span>
+														</div>
+													</div>
 												</li>
 											</ul>
 										</li>
@@ -138,10 +329,40 @@ function Main({ user, users }) {
 									/>
 								</div>
 							</div>
+							<div style={{ width: '100%' }} className='latLong'>
+								<span
+									style={{
+										float: 'right',
+										padding: '5px 0px 5px 10px',
+										position: 'relative',
+										left: '150px',
+										marginTop: '5px',
+									}}
+								>
+									Long:{' '}
+									<span style={{ fontWeight: '600' }}>
+										{' '}
+										{user?.address?.geo.lng}
+									</span>
+								</span>
+								<span
+									style={{
+										marginRight: '-123px',
+										marginTop: '5px',
+										float: 'right',
+										padding: '5px 10px',
+									}}
+								>
+									Lat:{' '}
+									<span style={{ fontWeight: '600' }}>
+										{user?.address?.geo.lat}
+									</span>
+								</span>
+							</div>
 						</div>
 					</div>
 				</div>
-				<div style={{ width: '100%', float: 'right' }}>
+				<div style={{ width: 100 + '%', float: 'right' }}>
 					<button className='btn open-button' onclick={onclick}>
 						Chat
 					</button>
@@ -151,7 +372,7 @@ function Main({ user, users }) {
 							<div className='user flex-user flex'>
 								<div>
 									<img
-										style={{ width: '30px', height: '30px' }}
+										style={{ width: 30 + 'px', height: +30 + 'px' }}
 										src='https://images.pexels.com/photos/3772510/pexels-photo-3772510.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940'
 										alt=''
 									/>
