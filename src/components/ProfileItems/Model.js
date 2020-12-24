@@ -1,12 +1,11 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import Main from '../Profile/Main'
 import Modal from 'react-modal'
 
 const Model = ({ user, users, loginFromModel, modelIsOpen, showModel }) => {
 	const finalNewUsers = []
 
-	const newUsers = users.map(newUser => {
+	users.forEach(newUser => {
 		if (newUser.id !== user.id) {
 			finalNewUsers.push(newUser)
 		}
