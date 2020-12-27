@@ -1,6 +1,14 @@
 import React from 'react'
+import Model from '../ProfileItems/Model'
 
-function Main2({ user, showModel }) {
+function Main2({
+	user,
+	showModel,
+	header,
+	users,
+	loginFromModel,
+	modelIsOpen,
+}) {
 	return (
 		<div className='col-lg-10 right-panel float-right final-h3'>
 			<div
@@ -9,7 +17,7 @@ function Main2({ user, showModel }) {
 			>
 				<div className='container-fluid'>
 					<div className='float-left'>
-						<h2>Profile</h2>
+						<h2>{header}</h2>
 					</div>
 
 					<div
@@ -17,7 +25,7 @@ function Main2({ user, showModel }) {
 						className='current-profile float-right flex'
 					>
 						<img
-							style={{ width: '30px', height: '30px' }}
+							style={{ width: '43px', height: '38px' }}
 							src={user.profilepicture}
 							alt=''
 						/>
@@ -26,6 +34,13 @@ function Main2({ user, showModel }) {
 				</div>
 			</div>
 			<h3>COMING SOON</h3>
+			<Model
+				showModel={showModel}
+				user={user}
+				users={users}
+				loginFromModel={loginFromModel}
+				modelIsOpen={modelIsOpen}
+			/>
 		</div>
 	)
 }

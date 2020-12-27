@@ -108,7 +108,7 @@ p {
 #wave {
 	position: absolute;
 	bottom: -40px;
-	height: 342px;
+	/* height: 342px; */
 	right: 0;
 	left: 0;
 }
@@ -143,17 +143,19 @@ h4 {
 	justify-content: space-between;
 	position: relative;
 	top: 15px;
+	cursor: pointer;
 }
 
 .profile .side-menu {
 	height: 800px;
 	margin-top: 55px;
-	margin-left: 18px;
+	margin-left: 3px;
 }
 .the-map img {
-	width: 641px;
-	height: 410px;
+	width: 606px;
+	height: 372px;
 	border-radius: 31px;
+	margin-top: 30px;
 }
 
 .the-map {
@@ -190,7 +192,7 @@ h4 {
 	padding: 39px 30px 39px 9px;
 	background-color: #2876f9;
 	background-image: linear-gradient(315deg, #2876f9 0%, #6d17cb 74%);
-	color: white;
+	/* color: white; */
 	height: 100%;
 }
 
@@ -201,19 +203,19 @@ h4 {
 }
 
 .menus a:active {
-	color: white;
 	text-decoration: none;
+	color: white;
 	outline: none;
 }
 
 .menus a:focus {
 	text-decoration: none;
-	color: white;
+	outline: none;
 }
 
-.menus ul li:first-child {
+/* .menus ul li:first-child {
 	color: white;
-}
+} */
 
 .menu a:hover {
 	text-decoration: none;
@@ -222,6 +224,7 @@ h4 {
 a:hover {
 	text-decoration: none;
 }
+
 .menus .card-new nav ul {
 	margin-bottom: 20px;
 }
@@ -462,7 +465,9 @@ a:hover {
 .final-h3 h3 {
 	text-align: center;
 	margin-top: 301px;
-	font-size: 67px;
+	font-size: bold;
+	font-weight: bold;
+	font-size: 92px;
 	color: rgb(214, 214, 214);
 }
 
@@ -598,7 +603,6 @@ button.close {
 	left: 50%;
 	transform: translate(-50%, -50%);
 	width: 70%;
-
 	background-color: white;
 	padding: 6rem;
 	border-radius: 5px;

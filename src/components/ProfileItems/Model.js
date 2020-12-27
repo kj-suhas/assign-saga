@@ -52,7 +52,6 @@ const Model = ({ user, users, loginFromModel, modelIsOpen, showModel }) => {
 													style={{
 														position: 'relative',
 														fontSize: '19px',
-														color: '#9A9A9A',
 														fontWeight: 'bold',
 													}}
 												>
@@ -63,7 +62,10 @@ const Model = ({ user, users, loginFromModel, modelIsOpen, showModel }) => {
 									</div>
 								</div>
 							</div>
-							<div style={{ textAlign: 'center' }} className='flex-item-2'>
+							<div
+								style={{ textAlign: 'center', color: '#9A9A9A' }}
+								className='flex-item-2'
+							>
 								<div className='user-info'>
 									<ul className='ul_style'>
 										<li>{user.website}</li>
@@ -110,26 +112,6 @@ const Model = ({ user, users, loginFromModel, modelIsOpen, showModel }) => {
 						</Link>
 					</div>
 				</div>
-
-				{/* <Link to='/'>
-					<div className='signOut'>
-						<button
-							onClick={() => {
-								// $('.modal-fadeIn').removeClass('modal-fadeIn')
-							}}
-							type='button'
-							style={{
-								borderRadius: '50px',
-								backgroundColor: '#d9534f',
-							}}
-							className='btn btn-danger close'
-							// data-dismiss='modal'
-							aria-hidden='true'
-						>
-							Signout
-						</button>
-					</div>
-				</Link> */}
 			</Modal>
 		</div>
 	)

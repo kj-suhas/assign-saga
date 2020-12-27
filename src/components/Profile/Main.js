@@ -335,7 +335,7 @@ function Main({ user, users, showModel }) {
 										float: 'right',
 										padding: '5px 0px 5px 10px',
 										position: 'relative',
-										left: '150px',
+										left: '128px',
 										marginTop: '5px',
 									}}
 								>
@@ -347,7 +347,7 @@ function Main({ user, users, showModel }) {
 								</span>
 								<span
 									style={{
-										marginRight: '-123px',
+										marginRight: '-120px',
 										marginTop: '5px',
 										float: 'right',
 										padding: '5px 10px',
