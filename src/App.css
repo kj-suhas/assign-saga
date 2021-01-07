@@ -196,7 +196,7 @@ h4 {
 	height: 100%;
 }
 
-.menus a {
+/* .menus a {
 	color: rgb(202, 199, 199);
 	margin-bottom: 2px;
 	padding: 10px;
@@ -211,11 +211,15 @@ h4 {
 .menus a:focus {
 	text-decoration: none;
 	outline: none;
-}
+} */
 
 /* .menus ul li:first-child {
 	color: white;
 } */
+
+nav ul li:active {
+	color: white;
+}
 
 .menu a:hover {
 	text-decoration: none;
@@ -640,4 +644,8 @@ button.close {
 }
 .pl-0 {
 	padding-left: 0px !important;
+}
+
+#should ul li a:active {
+	color: white;
 }

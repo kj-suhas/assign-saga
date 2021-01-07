@@ -1,16 +1,7 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-function Main({ user, users, showModel }) {
-	const onclick = () => {
-		console.log('chat')
-		// let toggleChat = document.getElementById('myForm')
-		// if (toggleChat.style.display === 'none') {
-		// 	toggleChat.style.display = 'block'
-		// } else {
-		// 	toggleChat.style.display = 'none'
-		// }
-	}
-
+function Main({ currentUser, showModel }) {
 	return (
 		<div className='col-lg-10 right-panel float-right'>
 			<div
@@ -29,10 +20,10 @@ function Main({ user, users, showModel }) {
 					>
 						<img
 							style={{ width: '45px', height: '41px' }}
-							src={user.profilepicture}
+							src={currentUser.profilepicture}
 							alt=''
 						/>
-						<h4>{user.name}</h4>
+						<h4>{currentUser.name}</h4>
 					</div>
 				</div>
 			</div>
@@ -44,11 +35,11 @@ function Main({ user, users, showModel }) {
 					<div className='user-profile also-flex'>
 						<div className='flex-item-1' style={{ margin: '0px' }}>
 							<div style={{ textAlign: 'center' }}>
-								<img src={user.profilepicture} alt='' />
+								<img src={currentUser.profilepicture} alt='' />
 							</div>
 
 							<div>
-								<h2>{user.name}</h2>
+								<h2>{currentUser.name}</h2>
 							</div>
 						</div>
 						<div className='flex-item-2'>
@@ -73,7 +64,7 @@ function Main({ user, users, showModel }) {
 													className='float-left'
 													style={{ color: '#545454' }}
 												>
-													{user.username}
+													{currentUser.username}
 												</span>
 											</div>
 										</div>
@@ -94,7 +85,7 @@ function Main({ user, users, showModel }) {
 													className='float-left'
 													style={{ color: '#545454' }}
 												>
-													{user.email}
+													{currentUser.email}
 												</span>
 											</div>
 										</div>
@@ -115,7 +106,7 @@ function Main({ user, users, showModel }) {
 													className='float-left'
 													style={{ color: '#545454' }}
 												>
-													{user.phone}
+													{currentUser.phone}
 												</span>
 											</div>
 										</div>
@@ -136,7 +127,7 @@ function Main({ user, users, showModel }) {
 													className='float-left'
 													style={{ color: '#545454' }}
 												>
-													{user.website}
+													{currentUser.website}
 												</span>
 											</div>
 										</div>
@@ -161,7 +152,7 @@ function Main({ user, users, showModel }) {
 										</div>
 										<div className='col-lg-8 pl-0'>
 											<span className='float-left' style={{ color: '#545454' }}>
-												{user.company?.name}
+												{currentUser.company?.name}
 											</span>
 										</div>
 									</div>
@@ -180,7 +171,7 @@ function Main({ user, users, showModel }) {
 										</div>
 										<div className='col-lg-8 pl-0'>
 											<span className='float-left' style={{ color: '#545454' }}>
-												{user.company?.catchPhrase}
+												{currentUser.company?.catchPhrase}
 											</span>
 										</div>
 									</div>
@@ -199,7 +190,7 @@ function Main({ user, users, showModel }) {
 										</div>
 										<div className='col-lg-8 pl-0'>
 											<span className='float-left' style={{ color: '#545454' }}>
-												{user.company?.bs}
+												{currentUser.company?.bs}
 											</span>
 										</div>
 									</div>
@@ -241,7 +232,7 @@ function Main({ user, users, showModel }) {
 																className='float-left'
 																style={{ color: '#545454' }}
 															>
-																{user?.address?.street}
+																{currentUser?.address?.street}
 															</span>
 														</div>
 													</div>
@@ -264,7 +255,7 @@ function Main({ user, users, showModel }) {
 																className='float-left'
 																style={{ color: '#545454' }}
 															>
-																{user?.address?.suite}
+																{currentUser?.address?.suite}
 															</span>
 														</div>
 													</div>
@@ -287,7 +278,7 @@ function Main({ user, users, showModel }) {
 																className='float-left'
 																style={{ color: '#545454' }}
 															>
-																{user?.address?.city}
+																{currentUser?.address?.city}
 															</span>
 														</div>
 													</div>
@@ -311,7 +302,7 @@ function Main({ user, users, showModel }) {
 																className='float-left'
 																style={{ color: '#545454' }}
 															>
-																{user?.address?.zipcode}
+																{currentUser?.address?.zipcode}
 															</span>
 														</div>
 													</div>
@@ -342,7 +333,7 @@ function Main({ user, users, showModel }) {
 									Long:{' '}
 									<span style={{ fontWeight: '600' }}>
 										{' '}
-										{user?.address?.geo.lng}
+										{currentUser?.address?.geo.lng}
 									</span>
 								</span>
 								<span
@@ -355,7 +346,7 @@ function Main({ user, users, showModel }) {
 								>
 									Lat:{' '}
 									<span style={{ fontWeight: '600' }}>
-										{user?.address?.geo.lat}
+										{currentUser?.address?.geo.lat}
 									</span>
 								</span>
 							</div>
@@ -387,4 +378,8 @@ function Main({ user, users, showModel }) {
 	)
 }
 
-export default Main
+const mapStateToProps = state => ({
+	currentUser: state.users.clickedUser,
+})
+
+export default connect(mapStateToProps, {})(Main)

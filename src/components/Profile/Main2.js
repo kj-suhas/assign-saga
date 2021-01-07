@@ -1,14 +1,9 @@
 import React from 'react'
 import Model from '../ProfileItems/Model'
+import { connect } from 'react-redux'
+// import { loginUser } from '../../actions/usersActions'
 
-function Main2({
-	user,
-	showModel,
-	header,
-	users,
-	loginFromModel,
-	modelIsOpen,
-}) {
+function Main2({ main2User, showModel, header, modelIsOpen }) {
 	return (
 		<div className='col-lg-10 right-panel float-right final-h3'>
 			<div
@@ -26,23 +21,23 @@ function Main2({
 					>
 						<img
 							style={{ width: '43px', height: '38px' }}
-							src={user.profilepicture}
+							src={main2User.profilepicture}
 							alt=''
 						/>
-						<h4>{user.name}</h4>
+						<h4>{main2User.name}</h4>
 					</div>
 				</div>
 			</div>
 			<h3>COMING SOON</h3>
-			<Model
-				showModel={showModel}
-				user={user}
-				users={users}
-				loginFromModel={loginFromModel}
-				modelIsOpen={modelIsOpen}
-			/>
+			<Model showModel={showModel} modelIsOpen={modelIsOpen} />
 		</div>
 	)
 }
 
-export default Main2
+const mapStateToProps = state => ({
+	main2User: state.users.clickedUser,
+	main2Users: state.users.items.users,
+	header: state.users.header,
+})
+
+export default connect(mapStateToProps, {})(Main2)

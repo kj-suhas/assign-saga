@@ -1,7 +1,23 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
+import { connect } from 'react-redux'
+import { getUsers } from '../actions/usersActions'
+import { useSelector, useDispatch } from 'react-redux'
 
-const Landing = ({ users, login }) => {
+const Landing = ({}) => {
+	const dispatch = useDispatch()
+	const users = useSelector(state => state.users.items)
+	const loading = useSelector(state => state.users.loading)
+	const error = useSelector(state => state.users.error)
+
+	console.log(users)
+	console.log(loading)
+
+	useEffect(() => {
+		console.log('called')
+		dispatch(getUsers())
+	}, [])
+
 	return (
 		<div className='showcase'>
 			<div className='container grid'>
@@ -11,9 +27,12 @@ const Landing = ({ users, login }) => {
 					</div>
 					<div>
 						<div className='users-container'>
-							{users.map((user, index) => (
+							{users?.users?.map((user, index) => (
 								<Link to={`/profile/${user.id}`} key={index}>
-									<div onClick={() => login(user)} className='user flex-user'>
+									<div
+										onClick={() => console.log('login')}
+										className='user flex-user'
+									>
 										<div>
 											<img
 												width='30px'

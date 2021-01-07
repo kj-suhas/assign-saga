@@ -1,21 +1,22 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Modal from 'react-modal'
+import { connect } from 'react-redux'
+// import { loginUser } from '../../actions/usersActions'
 
-const Model = ({ user, users, loginFromModel, modelIsOpen, showModel }) => {
+const Model = ({
+	modelUser,
+	modelUsers,
+	modelIsOpen,
+	showModel,
+	loginUser,
+}) => {
 	const finalNewUsers = []
-
-	users.forEach(newUser => {
-		if (newUser.id !== user.id) {
+	modelUsers?.forEach(newUser => {
+		if (newUser.id !== modelUser.id) {
 			finalNewUsers.push(newUser)
 		}
 	})
-
-	// console.log(finalNewUsers)
-
-	// console.log(newUsers, exceptCurrentUser)
-
-	// const $
 
 	return (
 		<div className='what'>
@@ -42,7 +43,7 @@ const Model = ({ user, users, loginFromModel, modelIsOpen, showModel }) => {
 														width: '99px',
 														height: '90px',
 													}}
-													src={user.profilepicture}
+													src={modelUser.profilepicture}
 													alt=''
 												/>
 											</div>
@@ -55,7 +56,7 @@ const Model = ({ user, users, loginFromModel, modelIsOpen, showModel }) => {
 														fontWeight: 'bold',
 													}}
 												>
-													{user.name}
+													{modelUser.name}
 												</h2>
 											</div>
 										</div>
@@ -68,7 +69,7 @@ const Model = ({ user, users, loginFromModel, modelIsOpen, showModel }) => {
 							>
 								<div className='user-info'>
 									<ul className='ul_style'>
-										<li>{user.website}</li>
+										<li>{modelUser.website}</li>
 									</ul>
 								</div>
 							</div>
@@ -77,7 +78,7 @@ const Model = ({ user, users, loginFromModel, modelIsOpen, showModel }) => {
 									<Link to={`/profile/${user.id}`} key={user.id}>
 										<div
 											onClick={() => {
-												loginFromModel(user)
+												loginUser(user)
 												showModel(false)
 											}}
 											className='user flex-user'
@@ -117,4 +118,9 @@ const Model = ({ user, users, loginFromModel, modelIsOpen, showModel }) => {
 	)
 }
 
-export default Model
+const mapStateToProps = state => ({
+	modelUsers: state.users.items.users,
+	modelUser: state.users.clickedUser,
+})
+
+export default connect(mapStateToProps, {})(Model)
