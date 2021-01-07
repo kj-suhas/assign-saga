@@ -13,7 +13,7 @@ const initialState = {
 	error: null,
 }
 
-export default function (state = initialState, action) {
+const func = (state = initialState, action) => {
 	switch (action.type) {
 		case GET_USERS_REQUESTED:
 			console.log('fetched')
@@ -43,3 +43,5 @@ export default function (state = initialState, action) {
 			return state
 	}
 }
+
+export default func
