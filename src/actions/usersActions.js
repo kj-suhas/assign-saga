@@ -1,8 +1,4 @@
-import {
-	GET_USERS_FAILED,
-	GET_USERS_SUCCESS,
-	GET_USERS_REQUESTED,
-} from './types'
+import { GET_USERS_REQUESTED } from './types'
 
 export function getUsers() {
 	return {

@@ -1,14 +1,13 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
 import { getUsers } from '../actions/usersActions'
 import { useSelector, useDispatch } from 'react-redux'
 
-const Landing = ({}) => {
+const Landing = () => {
 	const dispatch = useDispatch()
 	const users = useSelector(state => state.users.items)
 	const loading = useSelector(state => state.users.loading)
-	const error = useSelector(state => state.users.error)
+	// const error = useSelector(state => state.users.error)
 
 	console.log(users)
 	console.log(loading)
@@ -16,7 +15,7 @@ const Landing = ({}) => {
 	useEffect(() => {
 		console.log('called')
 		dispatch(getUsers())
-	}, [])
+	}, [dispatch])
 
 	return (
 		<div className='showcase'>

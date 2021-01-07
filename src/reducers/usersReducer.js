@@ -2,7 +2,7 @@ import {
 	GET_USERS_FAILED,
 	GET_USERS_REQUESTED,
 	GET_USERS_SUCCESS,
-	LOGIN,
+	// LOGIN,
 } from '../actions/types'
 
 const initialState = {
@@ -34,11 +34,11 @@ export default function (state = initialState, action) {
 				loading: false,
 				error: action.message,
 			}
-		case LOGIN:
-			return {
-				...state,
-				clickedUser: action.user,
-			}
+		// case LOGIN:
+		// 	return {
+		// 		...state,
+		// 		clickedUser: action.user,
+		// 	}
 		default:
 			return state
 	}

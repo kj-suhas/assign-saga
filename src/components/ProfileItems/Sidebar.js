@@ -5,16 +5,14 @@ import { connect } from 'react-redux'
 
 function Sidebar({ sidebarUser }) {
 	return (
-		<div class='col-lg-2 left-panel float-left'>
-			<div class='side-menu'>
-				<div class='menus card-new' id='should'>
+		<div className='col-lg-2 left-panel float-left'>
+			<div className='side-menu'>
+				<div className='menus card-new' id='should'>
 					<ul style={{ marginTop: '230px' }}>
 						<nav>
 							<ul onClick={() => console.log('Profile')}>
 								<li>
-									<a href=''>
-										<Link to={`/profile/${sidebarUser.id}`}>Profile</Link>
-									</a>
+									<Link to={`/profile/${sidebarUser.id}`}>Profile</Link>
 								</li>
 							</ul>
 							<hr />
