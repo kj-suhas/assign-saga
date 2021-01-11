@@ -1,13 +1,12 @@
 import React, { useEffect } from 'react'
 import { Link } from 'react-router-dom'
-import { getUsers } from '../actions/usersActions'
+import { getUsers, setClickedUser } from '../actions/usersActions'
 import { useSelector, useDispatch } from 'react-redux'
 
 const Landing = () => {
 	const dispatch = useDispatch()
 	const users = useSelector(state => state.users.items)
 	const loading = useSelector(state => state.users.loading)
-	// const error = useSelector(state => state.users.error)
 
 	console.log(users)
 	console.log(loading)
@@ -29,7 +28,7 @@ const Landing = () => {
 							{users?.users?.map((user, index) => (
 								<Link to={`/profile/${user.id}`} key={index}>
 									<div
-										onClick={() => console.log('login')}
+										onClick={() => dispatch(setClickedUser(user))}
 										className='user flex-user'
 									>
 										<div>

@@ -1,4 +1,9 @@
-import { GET_USERS_REQUESTED } from './types'
+import {
+	GET_USERS_REQUESTED,
+	LOGIN_SAGA,
+	CHNAGE_HEADER,
+	SHOW_MODEL,
+} from './types'
 
 export function getUsers() {
 	return {
@@ -6,27 +11,8 @@ export function getUsers() {
 	}
 }
 
-// export const fetchUsers = () => dispatch => {
-// 	fetch('https://panorbit.in/api/users.json')
-// 		.then(res => res.json())
-// 		.then(data =>
-// 			dispatch({
-// 				type: FETCH_USERS,
-// 				payload: data,
-// 			})
-// 		)
-// }
+export const setClickedUser = user => ({ type: LOGIN_SAGA, user })
 
-// export const loginUser = user => dispatch => {
-// 	dispatch({
-// 		type: LOGIN_USER,
-// 		payload: user,
-// 	})
-// }
+export const headerChange = header => ({ type: CHNAGE_HEADER, header })
 
-// export const headerChange = header => dispatch => {
-// 	dispatch({
-// 		type: CHANGE_HEADER,
-// 		payload: header,
-// 	})
-// }
+export const showModel = value => ({ type: SHOW_MODEL, value })

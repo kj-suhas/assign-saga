@@ -1,9 +1,14 @@
 import React from 'react'
 import Model from '../ProfileItems/Model'
-import { connect } from 'react-redux'
-// import { loginUser } from '../../actions/usersActions'
+import { useSelector, useDispatch } from 'react-redux'
+import { showModel } from '../../actions/usersActions'
 
-function Main2({ main2User, showModel, header, modelIsOpen }) {
+function Main2() {
+	const main2User = useSelector(state => state.users.clickedUser)
+	const header = useSelector(state => state.users.header)
+
+	const dispatch = useDispatch()
+
 	return (
 		<div className='col-lg-10 right-panel float-right final-h3'>
 			<div
@@ -16,7 +21,7 @@ function Main2({ main2User, showModel, header, modelIsOpen }) {
 					</div>
 
 					<div
-						onClick={() => showModel(true)}
+						onClick={() => dispatch(showModel(true))}
 						className='current-profile float-right flex'
 					>
 						<img
@@ -29,15 +34,9 @@ function Main2({ main2User, showModel, header, modelIsOpen }) {
 				</div>
 			</div>
 			<h3>COMING SOON</h3>
-			<Model showModel={showModel} modelIsOpen={modelIsOpen} />
+			<Model />
 		</div>
 	)
 }
 
-const mapStateToProps = state => ({
-	main2User: state.users.clickedUser,
-	main2Users: state.users.items.users,
-	header: state.users.header,
-})
-
-export default connect(mapStateToProps, {})(Main2)
+export default Main2

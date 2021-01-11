@@ -1,8 +1,10 @@
 import {
+	CHNAGE_HEADER,
 	GET_USERS_FAILED,
 	GET_USERS_REQUESTED,
 	GET_USERS_SUCCESS,
-	// LOGIN,
+	LOGIN_SAGA,
+	SHOW_MODEL,
 } from '../actions/types'
 
 const initialState = {
@@ -10,6 +12,7 @@ const initialState = {
 	loading: false,
 	clickedUser: {},
 	header: '',
+	modelIsOpen: false,
 	error: null,
 }
 
@@ -34,11 +37,21 @@ const func = (state = initialState, action) => {
 				loading: false,
 				error: action.message,
 			}
-		// case LOGIN:
-		// 	return {
-		// 		...state,
-		// 		clickedUser: action.user,
-		// 	}
+		case LOGIN_SAGA:
+			return {
+				...state,
+				clickedUser: action.user,
+			}
+		case CHNAGE_HEADER:
+			return {
+				...state,
+				header: action.header,
+			}
+		case SHOW_MODEL:
+			return {
+				...state,
+				modelIsOpen: action.value,
+			}
 		default:
 			return state
 	}

@@ -1,16 +1,16 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Modal from 'react-modal'
-import { connect } from 'react-redux'
-// import { loginUser } from '../../actions/usersActions'
+import { useSelector, useDispatch } from 'react-redux'
+import { setClickedUser, showModel } from '../../actions/usersActions'
 
-const Model = ({
-	modelUser,
-	modelUsers,
-	modelIsOpen,
-	showModel,
-	loginUser,
-}) => {
+const Model = () => {
+	const modelUsers = useSelector(state => state.users.items.users)
+	const modelUser = useSelector(state => state.users.clickedUser)
+	const modelIsOpen = useSelector(state => state.users.modelIsOpen)
+
+	const dispatch = useDispatch()
+
 	const finalNewUsers = []
 	modelUsers?.forEach(newUser => {
 		if (newUser.id !== modelUser.id) {
@@ -22,7 +22,7 @@ const Model = ({
 		<div className='what'>
 			<Modal
 				isOpen={modelIsOpen}
-				onRequestClose={() => showModel(false)}
+				onRequestClose={() => dispatch(showModel(false))}
 				className='modal_class'
 			>
 				<div className='profile profileModal'>
@@ -78,8 +78,8 @@ const Model = ({
 									<Link to={`/profile/${user.id}`} key={user.id}>
 										<div
 											onClick={() => {
-												loginUser(user)
-												showModel(false)
+												dispatch(setClickedUser(user))
+												dispatch(showModel(false))
 											}}
 											className='user flex-user'
 										>
@@ -118,9 +118,4 @@ const Model = ({
 	)
 }
 
-const mapStateToProps = state => ({
-	modelUsers: state.users.items.users,
-	modelUser: state.users.clickedUser,
-})
-
-export default connect(mapStateToProps, {})(Model)
+export default Model

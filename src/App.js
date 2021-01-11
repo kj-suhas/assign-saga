@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 import {
 	BrowserRouter as Router,
@@ -14,43 +14,25 @@ import Main2 from './components/Profile/Main2'
 import './App.css'
 import Sidebar from './components/ProfileItems/Sidebar'
 
-const ComingSoon = ({ showModel, modelIsOpen }) => {
+const ComingSoon = () => {
 	return (
 		<div className='profile'>
 			<div className='col-lg-12 profile_container'>
 				<Sidebar />
-				<Main2 showModel={showModel} modelIsOpen={modelIsOpen} />
+				<Main2 />
 			</div>
 		</div>
 	)
 }
 
 function App() {
-	const [modelIsOpen, setModelIsOpen] = useState(false)
-
-	const showModel = value => {
-		setModelIsOpen(value)
-	}
-
 	return (
 		<Router>
 			<div className='App'>
 				<Switch>
 					<Route exact path='/' component={() => <Landing />} />
-					<Route
-						exact
-						path='/profile/:id'
-						component={() => (
-							<Layout modelIsOpen={modelIsOpen} showModel={showModel} />
-						)}
-					/>
-					<Route
-						exact
-						path='/comingsoon'
-						component={() => (
-							<ComingSoon showModel={showModel} modelIsOpen={modelIsOpen} />
-						)}
-					/>
+					<Route exact path='/profile/:id' component={() => <Layout />} />
+					<Route exact path='/comingsoon' component={() => <ComingSoon />} />
 					<Redirect to='/' />
 				</Switch>
 			</div>

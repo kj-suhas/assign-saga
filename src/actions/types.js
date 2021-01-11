@@ -1,4 +1,6 @@
 export const GET_USERS_REQUESTED = 'GET_USERS_REQUESTED'
 export const GET_USERS_SUCCESS = 'GET_USERS_SUCCESS'
 export const GET_USERS_FAILED = 'GET_USERS_FAILED'
-export const LOGIN = 'LOGIN'
+export const LOGIN_SAGA = 'LOGIN_SAGA'
+export const CHNAGE_HEADER = 'CHANGE_HEADER'
+export const SHOW_MODEL = 'SHOW_MODEL'

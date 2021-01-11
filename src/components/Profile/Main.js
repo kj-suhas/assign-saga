@@ -1,7 +1,12 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { showModel } from '../../actions/usersActions'
 
-function Main({ currentUser, showModel }) {
+function Main() {
+	const currentUser = useSelector(state => state.users.clickedUser)
+
+	const dispatch = useDispatch()
+
 	return (
 		<div className='col-lg-10 right-panel float-right'>
 			<div
@@ -14,7 +19,7 @@ function Main({ currentUser, showModel }) {
 					</div>
 
 					<div
-						onClick={() => showModel(true)}
+						onClick={() => dispatch(showModel(true))}
 						className='current-profile float-right flex'
 						style={{ cursor: 'pointer' }}
 					>
@@ -378,8 +383,4 @@ function Main({ currentUser, showModel }) {
 	)
 }
 
-const mapStateToProps = state => ({
-	currentUser: state.users.clickedUser,
-})
-
-export default connect(mapStateToProps, {})(Main)
+export default Main

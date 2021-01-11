@@ -1,34 +1,38 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-import { connect } from 'react-redux'
-// import { headerChange } from '../../actions/usersActions'
+import { headerChange } from '../../actions/usersActions'
+import { useSelector, useDispatch } from 'react-redux'
 
-function Sidebar({ sidebarUser }) {
+function Sidebar() {
+	const sidebarUser = useSelector(state => state.users.clickedUser)
+
+	const dispatch = useDispatch()
+
 	return (
 		<div className='col-lg-2 left-panel float-left'>
 			<div className='side-menu'>
 				<div className='menus card-new' id='should'>
 					<ul style={{ marginTop: '230px' }}>
 						<nav>
-							<ul onClick={() => console.log('Profile')}>
+							<ul onClick={() => console.log('called')}>
 								<li>
 									<Link to={`/profile/${sidebarUser.id}`}>Profile</Link>
 								</li>
 							</ul>
 							<hr />
-							<ul onClick={() => console.log('Posts')}>
+							<ul onClick={() => dispatch(headerChange('Posts'))}>
 								<li>
 									<Link to='/comingsoon'>Posts</Link>
 								</li>
 							</ul>
 							<hr />
-							<ul onClick={() => console.log('Gallery')}>
+							<ul onClick={() => dispatch(headerChange('Gallery'))}>
 								<li>
 									<Link to='/comingsoon'>Gallery</Link>
 								</li>
 							</ul>
 							<hr />
-							<ul onClick={() => console.log('ToDo')}>
+							<ul onClick={() => dispatch(headerChange('ToDo'))}>
 								<li>
 									<Link to='/comingsoon'>ToDo</Link>
 								</li>
@@ -42,9 +46,4 @@ function Sidebar({ sidebarUser }) {
 	)
 }
 
-const mapStateToProps = state => ({
-	sidebarUser: state.users.clickedUser,
-	header: state.users.header,
-})
-
-export default connect(mapStateToProps, {})(Sidebar)
+export default Sidebar
